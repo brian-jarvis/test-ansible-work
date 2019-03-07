@@ -1,0 +1,32 @@
+## this holds special vars used by the hosts in the OSEv3 group
+
+ldapuser: billy
+ldappass_open: redhat-open
+ldappass_hidden: !vault |
+          $ANSIBLE_VAULT;1.1;AES256
+          32323031353039383663383639303335663034646438343837323333393332616666386466303835
+          6365656335306132613163326135323662623436326265660a316464633230346434633233323831
+          30653031336331393866623962326335343665313836383539616638616264346434373739653432
+          6437646565303665650a643666343761356237343736303765373534393333373062656633383365
+          6638
+
+openshift_master_identity_providers_groupvar:
+  - name: ldap_provider
+    challenge: 'true'
+    login: 'true'
+    kind: LDAPPasswordIdentityProvider
+    attributes:
+      id:
+      - dn
+      email:
+      - mail
+      name:
+      - cn
+      preferredUsername:
+      - uid
+    bindDN: cn=Manager,dc=example,dc=com
+    bindPassword: "{{ldappass_hidden}}"
+    ca: my-ldap-ca-bundle.crt
+    insecure: 'false'
+    url: ldap://ldap01vm.example.com/dc=example,dc=com?uid
+

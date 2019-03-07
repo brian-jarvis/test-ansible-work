@@ -1,0 +1,42 @@
+
+---
+- name: setup testing of various variables from the inventory and group
+  hosts: all
+  gather_facts: false
+  become: no
+  tasks:
+    - name: server from inventory
+      debug:
+          var: srv_name
+
+    - name: ldapuser from group
+      debug:
+          var: ldapuser
+
+    - name: ldappass_open from group
+      debug:
+          var: ldappass_open
+
+    - name: ldappass_hidden from group using vault
+      debug:
+          var: ldappass_hidden
+
+    - name: openshift_master_htpasswd_users from inventory static value
+      debug:
+          var: openshift_master_htpasswd_users
+
+    - name: openshift_master_htpasswd_users_vars from inventory group value
+      debug:
+          var: openshift_master_htpasswd_users_vars
+
+    - name: openshift_master_identity_providers from inventory group vault value
+      debug:
+          var: openshift_master_identity_providers
+
+    - name: openshift_master_identity_providers_groupvar from group  vault value
+      debug:
+          var: openshift_master_identity_providers_groupvar
+
+
+
+

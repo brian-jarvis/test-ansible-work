@@ -1,0 +1,13 @@
+
+[OSEv3:children]
+nodes
+
+[OSEv3:vars]
+srv_name=test_server_name
+openshift_master_htpasswd_users={'ocpadmin': '$apr1$IVr4ykY5$Cc4Gt3IWRMLxcmxfgrkwz0'}
+openshift_master_htpasswd_users_vars={'ocpadmin': '{{ldappass_open}}'}
+
+openshift_master_identity_providers=[{'name': 'ldap_provider', 'challenge': 'true', 'login': 'true', 'kind': 'LDAPPasswordIdentityProvider', 'attributes': {'id': ['dn'], 'email': ['mail'], 'name': ['cn'], 'preferredUsername': ['uid']}, 'bindDN': 'cn=Manager,dc=example,dc=com', 'bindPassword': '{{ldappass_hidden}}', 'ca': 'my-ldap-ca-bundle.crt', 'insecure': 'false', 'url': 'ldap://ldap01vm.example.com/dc=example,dc=com?uid'}]
+
+[nodes]
+localhost

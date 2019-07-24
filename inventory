@@ -4,6 +4,7 @@ nodes
 
 [OSEv3:vars]
 srv_name=test_server_name
+first_node=localhost
 openshift_master_htpasswd_users={'ocpadmin': '$apr1$IVr4ykY5$Cc4Gt3IWRMLxcmxfgrkwz0'}
 openshift_master_htpasswd_users_vars={'ocpadmin': '{{ldappass_open}}'}
 

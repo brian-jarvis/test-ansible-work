@@ -25,8 +25,9 @@ openshift_master_identity_providers_groupvar:
       preferredUsername:
       - uid
     bindDN: cn=Manager,dc=example,dc=com
-    bindPassword: "{{ldappass_hidden}}"
+    bindPassword: "{{ hostvars[groups.nodes[0]].ldappass_hidden }}"
     ca: my-ldap-ca-bundle.crt
     insecure: 'false'
     url: ldap://ldap01vm.example.com/dc=example,dc=com?uid
 
+testpass: "{{ hostvars[groups.nodes[0]].ldappass_hidden }}"

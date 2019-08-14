@@ -4,6 +4,8 @@ The password for the vaulted var is `redhat`
 
 The purpose of the test-vars.yml is to validate multiple methods of using variables both clear and vaulted.  Focus was on variables that are set in group_vars then used in the inventory.  Also vars that are used in the middle of a string value.
 
+**Note:** the inventory defines `openshift_master_identity_providers` and the group_vars `openshift_master_identity_providers_groupvar`.  This is done to demonstrate usage of the vaulted variable in both an inventory setting and a group_vars setting.  If you are using this as an example for OpenShift 3.11 the correct variable name is `openshift_master_identity_providers`.  Copy/Paste can be dangerous, use caution. 
+
 To execute run the following command
 ~~~ bash
 ansible-playbook -i inventory test-vars.yml --ask-vault-pass

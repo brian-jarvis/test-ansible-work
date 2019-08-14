@@ -31,3 +31,5 @@ openshift_master_identity_providers_groupvar:
     url: ldap://ldap01vm.example.com/dc=example,dc=com?uid
 
 testpass: "{{ hostvars[groups.nodes[0]].ldappass_hidden }}"
+
+testNum: "03"

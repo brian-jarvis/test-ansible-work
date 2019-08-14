@@ -9,29 +9,29 @@
       debug:
           var: srv_name
 
-    # - name: ldapuser from group
-    #   debug:
-    #       var: ldapuser
+    - name: ldapuser from group
+      debug:
+          var: ldapuser
 
-    # - name: ldappass_open from group
-    #   debug:
-    #       var: ldappass_open
+    - name: ldappass_open from group
+      debug:
+          var: ldappass_open
 
-    # - name: ldappass_hidden from group using vault
-    #   debug:
-    #       var: ldappass_hidden
+    - name: ldappass_hidden from group using vault
+      debug:
+          var: ldappass_hidden
 
-    # - name: openshift_master_htpasswd_users from inventory static value
-    #   debug:
-    #       var: openshift_master_htpasswd_users
+    - name: openshift_master_htpasswd_users from inventory static value
+      debug:
+          var: openshift_master_htpasswd_users
 
-    # - name: openshift_master_htpasswd_users_vars from inventory group value
-    #   debug:
-    #       var: openshift_master_htpasswd_users_vars
+    - name: openshift_master_htpasswd_users_vars from inventory group value
+      debug:
+          var: openshift_master_htpasswd_users_vars
 
-    # - name: openshift_master_identity_providers from inventory group vault value
-    #   debug:
-    #       var: openshift_master_identity_providers
+    - name: openshift_master_identity_providers from inventory group vault value
+      debug:
+          var: openshift_master_identity_providers
 
     - name: openshift_master_identity_providers_groupvar from group  vault value
       debug:
@@ -41,10 +41,14 @@
       debug:
           msg: "{{ groups.nodes[0] }}"
 
-    - name: testpass from group using vault
+    - name: testNum from group using vault
       debug:
-          var: testpass
+          var: testNum
 
-
-
+    - name: set gather_facts
+      set_fact: myNum=03
+      
+    - name: testNum from group using vault
+      debug:
+          var: myNum
 
